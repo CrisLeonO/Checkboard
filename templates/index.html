@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <title>Ajedrez</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <h1>My Checkboard</h1>
+        <table class="boxContainer">
+          {% for i in range(0,num_rows): %}
+          <tr>
+            {% for j in range(0,num_cols): %} {% if ((i%2 == 0 and j%2 == 0) or
+            (i%2 != 0 and j%2 != 0))%}
+            <td class="boxWhite" style="background-color: {{color_one}}"></td>
+            {% else %}
+            <td class="boxBlack" style="background-color: {{color_two}}"></td>
+            {% endif %} {% endfor %}
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
